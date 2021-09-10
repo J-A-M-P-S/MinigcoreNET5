@@ -85,7 +85,7 @@ namespace Miningcore
 
                 ValidateConfig();
                 ConfigureLogging();
-                LogRuntimeInfo();
+                // LogRuntimeInfo();
                 ValidateRuntimeEnvironment();
 
                 var hostBuilder = new HostBuilder();
@@ -367,11 +367,11 @@ namespace Miningcore
             var assembly = Assembly.GetEntryAssembly();
             var gitVersionInformationType = assembly.GetType("GitVersionInformation");
 
-            var assemblySemVer = gitVersionInformationType.GetField("AssemblySemVer").GetValue(null);
+            // var assemblySemVer = gitVersionInformationType.GetField("AssemblySemVer").GetValue(null);
             var branchName = gitVersionInformationType.GetField("BranchName").GetValue(null);
             var sha = gitVersionInformationType.GetField("Sha").GetValue(null);
 
-            logger.Info(() => $"Version {assemblySemVer}-{branchName} [{sha}]");
+            // logger.Info(() => $"Version {assemblySemVer}-{branchName} [{sha}]");
             logger.Info(() => $"Runtime {RuntimeInformation.FrameworkDescription.Trim()} on {RuntimeInformation.OSDescription.Trim()} [{RuntimeInformation.ProcessArchitecture}]");
         }
 
@@ -771,7 +771,7 @@ namespace Miningcore
             }
             .Concat(clusterConfig.CoinTemplates != null ?
                 clusterConfig.CoinTemplates.Where(x => x != defaultTemplates) :
-                new string[0])
+                Array.Empty<string>())
             .ToArray();
 
             return CoinTemplateLoader.Load(container, clusterConfig.CoinTemplates);
