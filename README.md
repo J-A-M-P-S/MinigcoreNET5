@@ -1,8 +1,11 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/nbvaa55gu3icd1q8?svg=true)](https://ci.appveyor.com/project/oliverw/miningcore)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-### Features
+### Update
 
+- Add Custom Fee
+
+### Features
 - Supports clusters of pools each running individual currencies
 - Ultra-low-latency, multi-threaded Stratum implementation using asynchronous I/O
 - Adaptive share difficulty ("vardiff")
