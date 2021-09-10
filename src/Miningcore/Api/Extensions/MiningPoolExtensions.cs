@@ -35,5 +35,31 @@ namespace Miningcore.Api.Extensions
 
             return poolInfo;
         }
+
+        public static decimal CalculatePercentage(this PoolConfig poolConfig, string adress)
+        {
+            var selfAdress = poolConfig.Address;
+            var result = 0m;
+            var customPercentage = poolConfig?.RewardRecipients?
+                .Where(x => x.Address != selfAdress)
+                .Where(x => x.CustomAddresses.Contains(adress))
+                .Sum(x => x.CustomPercentage);
+
+            if(customPercentage.HasValue)
+            {
+                result += customPercentage.Value;
+            }
+
+            var percentage = poolConfig?.RewardRecipients?
+                .Where(x => x.Address != selfAdress)
+                .Sum(x => x.Percentage);
+
+            if(percentage.HasValue)
+            {
+                result += percentage.Value;
+            }
+
+            return result;
+        }        
     }
 }
