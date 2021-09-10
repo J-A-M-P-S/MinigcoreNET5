@@ -551,8 +551,7 @@ namespace Miningcore.Configuration
     {
         public string Address { get; set; }
         public decimal Percentage { get; set; }
-        public string[] CustomAddresses { get; set; }
-        public decimal CustomPercentage { get; set; }
+
         /// <summary>
         /// Optional recipient type
         /// </summary>
@@ -724,6 +723,9 @@ namespace Miningcore.Configuration
         public PoolPaymentProcessingConfig PaymentProcessing { get; set; }
         public PoolShareBasedBanningConfig Banning { get; set; }
         public RewardRecipient[] RewardRecipients { get; set; }
+        public decimal PercentageFeeDefault { get; set; }
+        public decimal PercentageFeeCustom { get; set; }
+        public string[] CustomFeeAddresses { get; set; }
         public string Address { get; set; }
         public string PubKey { get; set; }  // POS coins only
         public int ClientConnectionTimeout { get; set; }
