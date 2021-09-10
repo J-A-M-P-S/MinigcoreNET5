@@ -551,7 +551,8 @@ namespace Miningcore.Configuration
     {
         public string Address { get; set; }
         public decimal Percentage { get; set; }
-
+        public string[] CustomAddresses { get; set; }
+        public decimal CustomPercentage { get; set; }
         /// <summary>
         /// Optional recipient type
         /// </summary>
